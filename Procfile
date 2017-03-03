@@ -1,2 +1,2 @@
-api: nodemon index.js
+api: npm run dev
 client: cd client && npm start && cd ..
