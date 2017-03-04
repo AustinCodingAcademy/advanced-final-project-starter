@@ -33,7 +33,7 @@
     "nodemon": "^1.11.0"
   },
   "dependencies": {
-    "bcrypt": "^0.8.7",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.2",
     "create-react-app": "1.2.1",
     "dotenv": "^2.0.0",

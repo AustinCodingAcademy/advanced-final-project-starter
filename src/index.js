@@ -17,7 +17,14 @@ const app = express();
 const authenticationRoutes = require("./routes/AuthenticationRoutes");
 
 app.use(bodyParser.json());
-// app.use(authenticationRoutes);
+app.use(authenticationRoutes);
+
+const authStrategy = passport.authenticate('authStrategy', { session: false});
+
+app.get('/api/secret', authStrategy, function(req, res, next) {
+  res.send(`The current user is ${req.user.username}`);
+})
+
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`Listening on port:${port}`);
