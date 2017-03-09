@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 
+
 class SignUp extends Component {
   constructor() {
     super();
@@ -9,10 +10,12 @@ class SignUp extends Component {
       username: '',
       password: '',
       confirmPassword: '',
-    }
+    };
   }
 
+
   handleSubmit(event) {
+    // handleSubmit method is invoked when the form is submitted
     event.preventDefault();
 
     this.props.onSignUp({
@@ -22,6 +25,7 @@ class SignUp extends Component {
     });
   }
 
+
   handleChange(event) {
     const { name, value } = event.target;
 
@@ -30,6 +34,7 @@ class SignUp extends Component {
       [name]: value
     }));
   }
+
 
   render() {
     return (
@@ -69,14 +74,16 @@ class SignUp extends Component {
 
         <Button type="submit">
          Sign Up
-       </Button>
+        </Button>
       </form>
     );
   }
 }
 
+
 SignUp.propTypes = {
   onSignUp: PropTypes.func.isRequired
 };
+
 
 export default SignUp;

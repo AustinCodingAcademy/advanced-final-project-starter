@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Tabs, Tab, Row, Col, Alert } from 'react-bootstrap';
 import SignUp from './SignUp';
 
+
 class SignUpSignIn extends Component {
 
   renderError() {
@@ -27,13 +28,15 @@ class SignUpSignIn extends Component {
           </Tabs>
         </Col>
       </Row>
-    )
+    );
   }
 }
+
 
 SignUpSignIn.propTypes = {
   error: PropTypes.string,
   onSignUp: PropTypes.func.isRequired
 };
+
 
 export default SignUpSignIn;

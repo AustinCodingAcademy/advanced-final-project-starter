@@ -11,7 +11,7 @@ require('../services/passport');
 
 
 // Authentication
-const signinStrategy = passport.authenticate('signinStrategy', { session: false});
+const signinStrategy = passport.authenticate('signinStrategy', { session: false });
 
 
 // Helper method to create token for a user

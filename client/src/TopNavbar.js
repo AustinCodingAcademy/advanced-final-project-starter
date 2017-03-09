@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router';
 
+
 const TopNavbar = (props) => {
   return (
     <Navbar inverse collapseOnSelect>
@@ -20,16 +21,17 @@ const TopNavbar = (props) => {
             <Nav pullRight>
               <Link to="/secret"><Navbar.Text>Secret</Navbar.Text></Link>
             </Nav>
-          </Navbar.Collapse>
-          : null
+          </Navbar.Collapse> : null
       }
     </Navbar>
   );
-}
+};
+
 
 TopNavbar.propTypes = {
   onSignOut: PropTypes.func.isRequired,
   showNavItems: PropTypes.bool.isRequired
 };
+
 
 export default TopNavbar;
