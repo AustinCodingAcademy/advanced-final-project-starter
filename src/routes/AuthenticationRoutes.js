@@ -45,9 +45,9 @@ router.post('/api/signup', function(req, res, next) {
             return next(err);
           }
           // Create new user
-          const user = new User({ username, password: hashedPassword });
+          const newUser = new User({ username, password: hashedPassword });
           //Save and return the new user
-          user.save()
+          newUser.save()
             .then(user => res.json({ token: tokenForUser(user) }));
         });
       });
