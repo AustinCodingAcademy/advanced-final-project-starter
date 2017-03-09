@@ -5,6 +5,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const passport = require("passport");
+import AuthenticationRoutes from './routes/AuthenticationRoutes';
 
 mongoose.Promise = global.Promise;
 mongoose
@@ -14,10 +15,10 @@ mongoose
 
 const app = express();
 
-const authenticationRoutes = require("./routes/AuthenticationRoutes");
+//const authenticationRoutes = require("./routes/AuthenticationRoutes");
 
 app.use(bodyParser.json());
-//app.use(authenticationRoutes);
+app.use(AuthenticationRoutes);
 
 const authStrategy = passport.authenticate('authStrategy', { session: false});
 

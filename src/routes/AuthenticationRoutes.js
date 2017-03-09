@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require('express');
 const router = express.Router();
 const jwt = require('jwt-simple');
@@ -39,7 +40,7 @@ router.post('/api/signup', function(req, res, next) {
 
       // If user does not exist, create user
       // bcrypt will hash the password
-      bcrypt.getSalt(10, function(salt) {
+      bcrypt.genSalt(10, function(salt) {
         bcrypt.hash(password, salt, null,  function(err, hashedPassword) {
           if(err) {
             return next(err);

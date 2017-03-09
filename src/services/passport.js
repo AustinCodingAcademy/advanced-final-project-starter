@@ -9,6 +9,7 @@ const signinStrategy = new LocalStrategy(function(username, password, done) {
     .then(user => {
       //If no user, call done with NULL argument and false signifying error
       if(!user) {
+        console.log("user didn't match");
         return done(null, false);
       }
 
@@ -18,6 +19,7 @@ const signinStrategy = new LocalStrategy(function(username, password, done) {
         }
         //If password does not match call done with NULL and false
         if(!isMatch) {
+          console.log('password did not match')
           return done(null, false);
         }
         return done(null, user);
