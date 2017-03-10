@@ -21,7 +21,6 @@ class Secret extends Component {
     })
       .then(resp => {
         this.setState({
-          ...this.state,
           message: resp.data
         });
       })

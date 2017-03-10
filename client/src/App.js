@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Match, Miss } from 'react-router';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 import SignUpSignIn from './SignUpSignIn';
@@ -24,7 +24,6 @@ class App extends Component {
     const { username, password, confirmPassword } = credentials;
     if (!username.trim() || !password.trim() || password.trim() !== confirmPassword.trim()) {
       this.setState({
-        ...this.state,
         signUpSignInError: 'Must Provide All Fields'
       });
     } else {
@@ -34,7 +33,6 @@ class App extends Component {
           localStorage.setItem('token', token);
 
           this.setState({
-            ...this.state,
             signUpSignInError: '',
             authenticated: token
           });
@@ -71,14 +69,18 @@ class App extends Component {
     // which allows the user access to the application.
     return (
       <div>
-        <Match exactly pattern="/" render={() => <h1>I am protected!</h1>} />
-        <Match exactly pattern="/secret" component={Secret} />
-        <Miss render={() => <h1>NOT FOUND!</h1>} />
+        <Switch>
+          <Route exact path="/" render={() => <h1>I am protected!</h1>} />
+          <Route exact path="/secret" component={Secret} />
+          <Route render={() => <h1>NOT FOUND!</h1>} />
+        </Switch>
       </div>
     );
   }
 
 
+  // Looking into state for authenticated value to be set, if so render App.
+  // If state does not have authenticated value, render SignUpSignIn.
   render() {
     return (
       <BrowserRouter>
@@ -87,8 +89,6 @@ class App extends Component {
             showNavItems={this.state.authenticated}
             onSignOut={this.handleSignOut.bind(this)}
           />
-          // Looking into state for authenticated value to be set, if so render App.
-          // If state does not have authenticated value, render SignUpSignIn.
           {this.state.authenticated ? this.renderApp() : this.renderSignUpSignIn()}
         </div>
       </BrowserRouter>
