@@ -20,7 +20,6 @@ class App extends Component {
     const { username, password, confirmPassword } = credentials;
     if(!username.trim() || !password.trim() || password.trim() !== confirmPassword.trim()) {
       this.setState({
-        ...this.state,
         signUpSignInError: 'Must Provide All Fields'
       });
     } else {
@@ -30,7 +29,6 @@ class App extends Component {
           localStorage.setItem('token', token);
 
           this.setState({
-            ...this.state,
             signUpSignInError: '',
             authenticated: token
           });
@@ -56,8 +54,8 @@ class App extends Component {
   renderApp() {
     return (
       <div>
-        <Match exactly pattern="/" render={() => <h1>I am protected!</h1>} />
-        <Match exactly pattern="/secret" component={Secret} />
+        <Match exact pattern="/" render={() => <h1>I am protected!</h1>} />
+        <Match exact pattern="/secret" component={Secret} />
         <Miss render={() => <h1>NOT FOUND!</h1>} />
       </div>
     );
@@ -67,7 +65,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <TopNavbar showNavItems={true} onSignOut={this.handleSignOut.bind(this)} />
+          <TopNavbar showNavItems={this.state.authenticated} onSignOut={this.handleSignOut.bind(this)} />
           {this.state.authenticated ? this.renderApp(): this.renderSignUpSignIn()}
         </div>
       </BrowserRouter>
