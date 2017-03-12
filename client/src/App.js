@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Match, Miss } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import SignUpSignIn from './SignUpSignIn';
 import TopNavbar from './TopNavbar';
@@ -37,7 +37,24 @@ class App extends Component {
   }
 
   handleSignIn(credentials) {
-    // handle the signup yo
+    // handle the signin yo
+    const { username, password } = credentials;
+    if(!username.trim() || !password.trim()) {
+      this.setState({
+        signUpSignInError: 'Must provide all fields!'
+      });
+    } else {
+      axios.post('/api/signin', credentials)
+        .then(resp => {
+          const { token } = resp.data;
+          localStorage.setItem('token', token);
+
+          this.setState({
+            signUpSignInError: '',
+            authenticated: token
+          });
+        });
+    }
   }
 
   handleSignOut() {
@@ -48,15 +65,19 @@ class App extends Component {
   }
 
   renderSignUpSignIn() {
-    return <SignUpSignIn error={this.state.signUpSignInError} onSignUp={this.handleSignUp.bind(this)} />
+    return <SignUpSignIn error={this.state.signUpSignInError}
+              onSignUp={this.handleSignUp.bind(this)}
+              onSignIn={this.handleSignIn.bind(this)} />
   }
 
   renderApp() {
     return (
       <div>
-        <Match exact pattern="/" render={() => <h1>I am protected!</h1>} />
-        <Match exact pattern="/secret" component={Secret} />
-        <Miss render={() => <h1>NOT FOUND!</h1>} />
+        <Switch>
+          <Route exact pattern="/" render={() => <h1>I am protected!</h1>} />
+          <Route exact pattern="/secret" component={Secret} />
+          <Route render={() => <h1>NOT FOUND!</h1>} />
+        </Switch>
       </div>
     );
   }
