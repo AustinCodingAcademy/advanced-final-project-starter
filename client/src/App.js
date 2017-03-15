@@ -42,7 +42,25 @@ class App extends Component {
 
 
   handleSignIn(credentials) {
-    // Handle Sign Up
+    // Handler is responsible for taking the credentials, verifying the information
+    // and submitting the request to the API to signin an existing user.
+    const { username, password } = credentials;
+    if (!username.trim() || !password.trim()) {
+      this.setState({
+        signUpSignInError: 'Must Provide All Fields'
+      });
+    } else {
+      axios.post('/api/signin', credentials)
+        .then(resp => {
+          const { token } = resp.data;
+          localStorage.setItem('token', token);
+
+          this.setState({
+            signUpSignInError: '',
+            authenticated: token
+          });
+        });
+    }
   }
 
 
@@ -58,6 +76,7 @@ class App extends Component {
     return <SignUpSignIn
       error={this.state.signUpSignInError}
       onSignUp={this.handleSignUp.bind(this)}
+      onSignIn={this.handleSignIn.bind(this)}
       />;
   }
 
