@@ -5,6 +5,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require('passport');
+import ListRoutes from '../routes/ListRoutes';
 
 
 // Require our custom strategies
@@ -26,6 +27,10 @@ app.use(bodyParser.json());
 app.use(authenticationRoutes);
 
 const authStrategy = passport.authenticate('authStrategy', { session: false });
+
+app.use(authStrategy, ListRoutes);
+// Applied middleware to routes, and all ListRoutes will be protected by authStrategy.
+// This means a user will not have access unless they are logged into the application.
 
 /* eslint no-unused-vars: 0 */
 app.get('/api/secret', authStrategy, function (req, res, next) {
