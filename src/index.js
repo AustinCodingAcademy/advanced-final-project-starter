@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require('passport');
 import ListRoutes from '../routes/ListRoutes';
+import ListItemRoutes from '../routes/ListItemRoutes';
 
 
 // Require our custom strategies
@@ -29,6 +30,7 @@ app.use(authenticationRoutes);
 const authStrategy = passport.authenticate('authStrategy', { session: false });
 
 app.use(authStrategy, ListRoutes);
+app.use(authStrategy, ListItemRoutes);
 // Applied middleware to routes, and all ListRoutes will be protected by authStrategy.
 // This means a user will not have access unless they are logged into the application.
 
