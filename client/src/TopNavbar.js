@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
+
 
 const TopNavbar = (props) => {
   return (
@@ -20,16 +21,17 @@ const TopNavbar = (props) => {
             <Nav pullRight>
               <Link to="/secret"><Navbar.Text>Secret</Navbar.Text></Link>
             </Nav>
-          </Navbar.Collapse>
-          : null
+          </Navbar.Collapse> : null
       }
     </Navbar>
   );
-}
+};
+
 
 TopNavbar.propTypes = {
   onSignOut: PropTypes.func.isRequired,
-  showNavItems: PropTypes.bool.isRequired
+  showNavItems: PropTypes.string.isRequired
 };
+
 
 export default TopNavbar;

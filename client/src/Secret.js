@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+
 class Secret extends Component {
   constructor() {
     super();
@@ -10,20 +11,23 @@ class Secret extends Component {
     };
   }
 
+
   componentDidMount() {
     axios.get('/api/secret', {
+      // Passing token via authorization header
       headers: {
         authorization: localStorage.getItem('token')
       }
     })
       .then(resp => {
         this.setState({
-          ...this.state,
           message: resp.data
         });
       })
+      /* eslint no-console: 0 */
       .catch(err => console.log(err));
   }
+
 
   render() {
     return (
@@ -31,5 +35,6 @@ class Secret extends Component {
     );
   }
 }
+
 
 export default Secret;
