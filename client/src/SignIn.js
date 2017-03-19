@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { FormGroup, FormControl, Button } from 'react-bootstrap';
+import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 
 class SignIn extends Component {
   constructor() {
@@ -32,8 +32,9 @@ class SignIn extends Component {
     return (
       <form onSubmit={this.handleSubmit.bind(this)}>
         <FormGroup>
+          <ControlLabel><h3>Sign in to enjoy Movie Memory</h3></ControlLabel>
           <FormControl
-            type="email"
+            type="text"
             name="username"
             placeholder="User Name"
             value={this.state.username}
@@ -49,7 +50,7 @@ class SignIn extends Component {
             onChange={event => this.handleChange(event)}
           />
         </FormGroup>
-        <Button type="submit">
+        <Button id="sign-in" type="submit">
          Sign In
         </Button>
       </form>

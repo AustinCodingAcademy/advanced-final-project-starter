@@ -2,13 +2,8 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
 .App-header {
-  background-color: #222;
+  background-color: rgb( 53, 53, 53);
   height: 150px;
   padding: 20px;
   color: white;
@@ -18,7 +13,12 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+#sign-up, #sign-in {
+  height: 45px;
+  width: 150px;
+  background: #5BAF5E;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }

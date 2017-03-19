@@ -3,3 +3,20 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+body .row {
+  margin: 0;
+}
+
+footer {
+  height: 300px;
+  background-color: #353535;
+  color: white;
+  text-align: center;
+}
+
+footer > div {
+  width: 80%;
+  margin: 0 auto;
+  padding: 5px;
+}

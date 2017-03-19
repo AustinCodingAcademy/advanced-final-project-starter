@@ -7,7 +7,7 @@ const TopNavbar = (props) => {
     <Navbar inverse collapseOnSelect>
       <Navbar.Header>
         <Navbar.Brand>
-          <Link to="/">Auth App</Link>
+          <Link to="/">Movie Memory</Link>
         </Navbar.Brand>
         { props.showNavItems ? <Navbar.Toggle /> : null }
       </Navbar.Header>
@@ -18,7 +18,7 @@ const TopNavbar = (props) => {
               <NavItem onClick={props.onSignOut}>Sign Out</NavItem>
             </Nav>
             <Nav pullRight>
-              <Link to="/secret"><Navbar.Text>Secret</Navbar.Text></Link>
+              <Link to="/mygames"><Navbar.Text>My Games</Navbar.Text></Link>
             </Nav>
           </Navbar.Collapse>
           : null

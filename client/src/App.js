@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import SignUpSignIn from './SignUpSignIn';
 import TopNavbar from './TopNavbar';
-import Secret from './Secret';
+import GameApp from './GameApp';
 import axios from 'axios';
 
 class App extends Component {
@@ -74,8 +74,8 @@ class App extends Component {
     return (
       <div>
         <Switch>
-          <Route exact pattern="/" render={() => <h1>I am protected!</h1>} />
-          <Route exact pattern="/secret" component={Secret} />
+          <Route exact pattern="/mygames" component={GameApp} />
+          <Route exact pattern="/" render={() => <h1>You should totes sign up to play!</h1>} />
           <Route render={() => <h1>NOT FOUND!</h1>} />
         </Switch>
       </div>
