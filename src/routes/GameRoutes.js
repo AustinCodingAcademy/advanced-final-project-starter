@@ -3,10 +3,10 @@ import GameController from '../controllers/GameController';
 
 const router = express.Router();
 
-router.get('/games', GameController.list);
-router.get('/games/:_id', GameController.show);
-router.post('/games', GameController.create);
-router.put('/games/:_id', GameController.update);
-router.delete('/games/:_id', GameController.update);
+router.get('/api/movie-games', GameController.list);
+router.get('/api/movie-games/:_id', GameController.show);
+router.post('/api/movie-games', GameController.create);
+router.put('/api/movie-games/:_id', GameController.update);
+router.delete('/api/movie-games/:_id', GameController.update);
 
 export default router;

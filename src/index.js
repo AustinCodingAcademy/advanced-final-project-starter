@@ -6,10 +6,11 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const passport = require("passport");
 import AuthenticationRoutes from './routes/AuthenticationRoutes';
+import GameRoutes from './routes/GameRoutes';
 
 mongoose.Promise = global.Promise;
 mongoose
-  .connect("mongodb://localhost/todo-list-app")
+  .connect("mongodb://localhost/movie-memory")
   .then(() => console.log("[mongoose] Connected to MongoDB"))
   .catch(() => console.log("[mongoose] Error connecting to MongoDB"));
 
@@ -19,6 +20,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(AuthenticationRoutes);
+app.use(GameRoutes);
 
 const authStrategy = passport.authenticate('authStrategy', { session: false});
 

@@ -5,7 +5,6 @@ const userSchema = new Schema({
   username: {
     type: String,
     unique: true,
-    lowercase: true,
     required: true
   },
 
@@ -15,4 +14,4 @@ const userSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('movie-user', userSchema);

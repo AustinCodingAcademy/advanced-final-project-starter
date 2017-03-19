@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import './App.css';
+import './css/App.css';
 import SignUpSignIn from './SignUpSignIn';
 import TopNavbar from './TopNavbar';
 import GameApp from './GameApp';

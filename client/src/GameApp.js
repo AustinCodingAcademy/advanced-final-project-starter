@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PlayArea from './PlayArea';
-import './GameApp.css';
+import './css/GameApp.css';
 
 class GameApp extends Component {
   constructor() {

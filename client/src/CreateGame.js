@@ -31,6 +31,18 @@ class PlayArea extends React.Component {
     });
   }
 
+  saveThisGame() {
+    const saveGame = {name: this.state.nameText, game: this.game};
+    axios.post('/api/movie-games', saveGame)
+    .then(() => {
+      this.props.buildGame(this.game);
+    })
+    .then(() => {
+      console.log("saved game", this.state.nameText);
+    })
+    .catch(err => {console.log("save error",err)});
+  }
+
   goSearch(search) {
     axios.get(`https://api.themoviedb.org/3/search/movie?api_key=f092d5754221ae7340670fea92139433&language=en-US&query=${search}&page=1&include_adult=false`)
     .then(resp => {
@@ -82,8 +94,11 @@ class PlayArea extends React.Component {
           captureSearch={this.captureSearch.bind(this)}
           goSearch={this.goSearch.bind(this)}
           value={this.state.searchText}/>
-        <div id='load-game' onClick={() => this.props.buildGame(this.game)}>Load Game</div>
-        <input id="input-gamename" type="text" placeholder="Name this game..." value={this.state.nameText} onChange={event => this.props.captureName(event)}></input>
+        <div id='load-game' onClick={() => this.saveThisGame()}>Load Game</div>
+        <input id="input-gamename" type="text"
+          placeholder="Name this game..." 
+          value={this.state.nameText}
+          onChange={event => this.captureName(event)}></input>
         <div id="working-search">
           <PendingGame pendingGame={this.state.pendingGame}/>
           <MovieSearchResults searchResult={this.state.searchResult}

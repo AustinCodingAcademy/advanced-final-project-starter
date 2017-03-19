@@ -8,7 +8,7 @@ const gameSchema = new mongoose.Schema({
   'name' : {
     required: true,
     type: String
-  }
+  },
   'game' : {
     required: true,
     type: Array
