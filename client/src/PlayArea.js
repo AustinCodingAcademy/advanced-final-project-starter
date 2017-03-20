@@ -1,6 +1,7 @@
 import React from 'react';
 import CreateGame from './CreateGame';
 import MovieGame from './MovieGame';
+import GameList from './GameList';
 
 class PlayArea extends React.Component {
   constructor() {
@@ -10,7 +11,7 @@ class PlayArea extends React.Component {
 
     this.state = {
       showSearch: false,
-      showGameList: false,
+      showGameList: true,
       showGame: false
     };
   }
@@ -41,7 +42,7 @@ class PlayArea extends React.Component {
     this.newGame = gameArray;
     this.setState({
       showGame: true,
-      showList: false,
+      showGameList: false,
       showSearch: false
     });
     return gameArray;
@@ -53,6 +54,7 @@ class PlayArea extends React.Component {
         <h1>Welcome to Movie Memory</h1>
         <h3>Put your memory to the test</h3>
         <div id="create-game" onClick={() => this.createGame()}>Create Game</div>
+        {this.state.showGameList ? <GameList buildGame={this.buildGame.bind(this)}/> : null }
         {this.state.showSearch ? <CreateGame
           buildGame={this.buildGame.bind(this)} /> : null }
         {this.state.showGame ? <MovieGame gameDeck={this.newGame}/> : null}
