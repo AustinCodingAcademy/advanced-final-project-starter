@@ -18,6 +18,43 @@
   padding: 30px;
 }
 
+#game-list {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#game-list > div {
+  width: 40%;
+  height: 150px;
+  margin-top: 20px;
+  padding: 5px;
+}
+
+#game-list > div > div {
+  width: 30%;
+  height: 100%;
+  float: left;
+}
+
+#game-list > div > div > img {
+  width: auto;
+  max-height: 100%;
+}
+
+#game-list span {
+  width: 100px;
+  height: 50px;
+  margin-top: 100px;
+  padding: 10px 20px;
+  background: #5BAF5E;
+  color: white;
+}
+
 #create-movie-game > div {
   display: inline-block;
 }

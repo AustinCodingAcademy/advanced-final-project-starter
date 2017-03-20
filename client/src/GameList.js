@@ -31,11 +31,13 @@ class GameList extends Component {
     return (
       <div id="game-list">
       {this.state.gameList.map(game => {
-        <ListedMovie key={game._id}
-          id={game._id}
-          poster={game.game[0].poster}
-          gameName={game.name}
-          buildGame={this.props.buildGame.bind(this)} />
+        return (
+          <ListedMovie key={game._id}
+            id={game._id}
+            poster={game.game[0].poster}
+            gameName={game.name}
+            buildGame={this.props.buildGame.bind(this)} />
+          )
         })
       }
       </div>

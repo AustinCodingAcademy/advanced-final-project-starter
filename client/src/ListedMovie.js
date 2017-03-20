@@ -11,7 +11,8 @@ class ListedMovie extends React.Component {
   }
 
   launchGame (launchID) {
-    axios.get(`/api/movie-games/${this.props.id}`)
+    console.log(`/api/movie-games/${launchID}`);
+    axios.get(`/api/movie-games/${launchID}`)
     .then(resp => {
       this.props.buildGame(resp.data.game)
     })
@@ -24,7 +25,7 @@ class ListedMovie extends React.Component {
         <div>
           <img src={this.props.poster} alt="game poster"/>
         </div>
-        <h3>{this.props.name}</h3>
+        <h3>{this.props.gameName}</h3>
         <span onClick={() => this.launchGame(this.props.id)}>Play</span>
       </div>
     )

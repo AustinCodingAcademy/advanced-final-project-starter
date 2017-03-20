@@ -9,7 +9,7 @@ gameController.list = (request, response, next) => {
 };
 
 gameController.show = (request, response, next) => {
-  GameModel.findById().exec()
+  GameModel.findById(request.params._id).exec()
   .then(game => response.json(game))
   .catch(err => next(err));
 };
