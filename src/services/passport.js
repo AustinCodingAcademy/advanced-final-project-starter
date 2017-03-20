@@ -1,5 +1,8 @@
-const bcrypt = require('bcrypt');
-const passport = require('passport');
-const User = require('../models/UserModel');
-const { Strategy: JwtStrategy, ExtractJwt } = require('passport-jwt');
-const LocalStrategy = require('passport-local');
+import bcrypt from 'bcrypt';
+import passport from 'passport';
+import User from '../models/UserModel';
+import {
+  Strategy as JwtStrategy,
+  ExtractJwt
+} from 'passport-jwt';
+import LocalStrategy from 'passport-local';

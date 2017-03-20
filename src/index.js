@@ -1,10 +1,10 @@
 // dotenv allows us to declare environment variables in a .env file, \
 // find out more here https://github.com/motdotla/dotenv
 require("dotenv").config();
-const express = require("express");
-const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
-const passport = require("passport");
+import express from 'express';
+import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
+import passport from 'passport';
 
 mongoose.Promise = global.Promise;
 mongoose
