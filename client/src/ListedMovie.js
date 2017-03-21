@@ -26,7 +26,12 @@ class ListedMovie extends React.Component {
           <img src={this.props.poster} alt="game poster"/>
         </div>
         <h3>{this.props.gameName}</h3>
-        <span onClick={() => this.launchGame(this.props.id)}>Play</span>
+        <div className="launch-game" onClick={() => this.launchGame(this.props.id)}>Play</div>
+        <div className="mini-menu">
+          <span className="fa fa-caret-square-o-left"></span>
+          <span className="fa fa-pencil"></span>
+          <span className="fa fa-trash"></span>
+        </div>
       </div>
     )
   }

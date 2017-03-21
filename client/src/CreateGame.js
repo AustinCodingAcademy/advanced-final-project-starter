@@ -4,7 +4,7 @@ import MovieSearchResults from './MovieSearchResults';
 import PendingGame from './PendingGame';
 import axios from 'axios';
 
-class PlayArea extends React.Component {
+class CreateGame extends React.Component {
   constructor() {
     super();
 
@@ -96,7 +96,7 @@ class PlayArea extends React.Component {
           value={this.state.searchText}/>
         <div id='load-game' onClick={() => this.saveThisGame()}>Load Game</div>
         <input id="input-gamename" type="text"
-          placeholder="Name this game..." 
+          placeholder="Name this game..."
           value={this.state.nameText}
           onChange={event => this.captureName(event)}></input>
         <div id="working-search">
@@ -109,4 +109,4 @@ class PlayArea extends React.Component {
   }
 }
 
-export default PlayArea;
+export default CreateGame;

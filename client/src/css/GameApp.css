@@ -29,13 +29,46 @@
 }
 
 #game-list > div {
+  position: relative;
   width: 40%;
   height: 150px;
-  margin-top: 20px;
+  margin: 20px 10px 0 10px;
   padding: 5px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-#game-list > div > div {
+.mini-menu {
+  position: absolute;
+  padding: 5px;
+  height: 30px;
+  width: 175px;
+  bottom: 5px;
+  right: -100px;
+  -webkit-transition: right 1s;
+  transition: right 1s;
+}
+
+.mini-menu:hover {
+  right: 0;
+}
+
+.mini-menu span:first-of-type {
+  margin-right: 70px;
+}
+
+.mini-menu span {
+  font-size: 20px;
+  color: #5BAF5E;
+  cursor: pointer;
+}
+
+.mini-menu span:not(:first-of-type) {
+  margin-right: 15px;
+}
+
+#game-list > div > div:first-of-type {
   width: 30%;
   height: 100%;
   float: left;
@@ -46,14 +79,15 @@
   max-height: 100%;
 }
 
-#game-list span {
+/*.launch-game {
   width: 100px;
   height: 50px;
-  margin-top: 100px;
+  margin-top: 10px;
   padding: 10px 20px;
   background: #5BAF5E;
   color: white;
-}
+  cursor: pointer;
+}*/
 
 #create-movie-game > div {
   display: inline-block;
@@ -93,7 +127,7 @@
   display: inline-block;
 }
 
-#load-game, #start-game, #create-game {
+#load-game, #start-game, #create-game, .launch-game {
   height: 45px;
   width: 150px;
   background-color: #5BAF5E;
