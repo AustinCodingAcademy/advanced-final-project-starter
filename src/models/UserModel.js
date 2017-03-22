@@ -14,4 +14,4 @@ const userSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('movie-user', userSchema);
+module.exports = mongoose.model('user', userSchema);

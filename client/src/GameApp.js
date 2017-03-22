@@ -5,7 +5,6 @@ import './css/GameApp.css';
 class GameApp extends Component {
   constructor() {
     super();
-
   }
 
   render() {
