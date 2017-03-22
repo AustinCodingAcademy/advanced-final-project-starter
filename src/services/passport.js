@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcrypt-nodejs';
 import passport from 'passport';
 import User from '../models/UserModel';
 import {
