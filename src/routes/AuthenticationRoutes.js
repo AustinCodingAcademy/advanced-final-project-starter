@@ -7,12 +7,11 @@ router.post('/api/signup', (request, response, next) => {
   // Grab the username and password from our request body
 
   const { username, password } = request.body;
-
   // If no username or password was supplied, return an error
 
   if (!username || !password) {
     return response.status(422)
-    .jason({ error: 'You must provide a username and password' });
+    .json({ error: 'You must provide a username and password' });
   }
 
   // Look for a user with the current username

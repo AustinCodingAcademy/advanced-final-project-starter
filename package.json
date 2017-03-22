@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint src",
-    "dev": "nodemon --exec 'babel-node src/index'",
+    "dev": "nodemon --exec babel-node src/index",
     "test": "npm run lint",
     "start": "nf start"
   },

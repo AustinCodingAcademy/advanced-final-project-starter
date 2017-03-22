@@ -17,8 +17,10 @@ const app = express();
 import authenticationRoutes from './routes/AuthenticationRoutes';
 
 app.use(bodyParser.json());
-// app.use(authenticationRoutes);
+app.use(authenticationRoutes);
+
 const port = process.env.PORT || 3001;
+
 app.listen(port, () => {
   console.log(`Listening on port:${port}`);
 });
