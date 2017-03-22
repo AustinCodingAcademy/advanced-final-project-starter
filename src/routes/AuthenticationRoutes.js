@@ -1,7 +1,22 @@
 import express from 'express';
 const router = express.Router();
+import jwt from 'jwt-simple';
 import User from '../models/UserModel';
 import bcrypt from 'bcrypt-nodejs';
+import passport from 'passport';
+import '../services/passport';
+
+const signinStrategy = passport.authenticate('signinStrategy', { session: false });
+
+// Helper method to create a token for a user
+function tokenForUser(user) {
+  const timestamp = new Date().getTime();
+  return jwt.encode({ userId: user.id, iat: timestamp }, process.env.SECRET);
+}
+
+router.post('/api/signin', signinStrategy, (request, response, next) => {
+  response.json({ token: tokenForUser(request.user) });
+});
 
 router.post('/api/signup', (request, response, next) => {
   // Grab the username and password from our request body
@@ -36,7 +51,7 @@ router.post('/api/signup', (request, response, next) => {
 
           // Save and return the user
           newUser.save()
-            .then(user => response.json(user));
+            .then(user => response.json({ token: tokenForUser(user) }));
 
         });
       });

@@ -5,6 +5,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import passport from 'passport';
+import './services/passport';
 
 mongoose.Promise = global.Promise;
 mongoose
@@ -18,6 +19,12 @@ import authenticationRoutes from './routes/AuthenticationRoutes';
 
 app.use(bodyParser.json());
 app.use(authenticationRoutes);
+
+const authStrategy = passport.authenticate('authStrategy', { session: false });
+
+app.get('/api/secret', authStrategy, (request, response, next) => {
+  response.send(`The current user is ${request.user.username}`);
+});
 
 const port = process.env.PORT || 3001;
 
