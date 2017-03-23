@@ -12,7 +12,7 @@ class App extends Component {
 
     this.state = {
       signUpSignInError: '',
-      authenticated: localStorage.getItem('token') || false
+      authenticated: Boolean(localStorage.getItem('token'))
     };
   }
 
@@ -31,7 +31,7 @@ class App extends Component {
 
           this.setState({
             signUpSignInError: '',
-            authenticated: token
+            authenticated: true
           });
         })
         .catch(error => { console.log(error); });

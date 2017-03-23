@@ -9,7 +9,7 @@ class SignUp extends Component {
       username: '',
       password: '',
       confirmPassword: '',
-    }
+    };
   }
 
   handleSubmit(event) {
