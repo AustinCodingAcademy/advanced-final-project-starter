@@ -19,7 +19,7 @@ class SignUpSignIn extends Component {
           {this.props.error && this.renderError()}
           <Tabs defaultActiveKey={1} id="signup-signin-tabs">
             <Tab eventKey={1} title="Sign Up">
-              <SignUp onSignUp={this.props.onSignUp}/>
+              <SignUp onSignUp={this.props.onSignUp} />
             </Tab>
             <Tab eventKey={2} title="Sign In">
               Sign In
@@ -27,7 +27,7 @@ class SignUpSignIn extends Component {
           </Tabs>
         </Col>
       </Row>
-    )
+    );
   }
 }
 
