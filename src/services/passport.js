@@ -6,6 +6,7 @@ import {
   Strategy as JwtStrategy,
   ExtractJwt
 } from 'passport-jwt';
+require('dotenv').config();
 
 const signinStrategy = new LocalStrategy((username, password, done) => {
   User.findOne({ username }).exec()
@@ -45,8 +46,6 @@ const jwtOptions = {
   jwtFromRequest: ExtractJwt.fromHeader('authorization')
 };
 
-console.log(jwtOptions.secretOrKey);
-
 // Create JWT strategy
 // This will take our token and decode it to
 // extract the information we have stored in it
@@ -55,9 +54,9 @@ const authStrategy = new JwtStrategy(jwtOptions, (payload, done) => {
     if (error) { return done(error, false); }
 
     if (user) {
-      return done(null, user);
+      done(null, user);
     } else {
-      return done(null, false);
+      done(null, false);
     }
 
   });
