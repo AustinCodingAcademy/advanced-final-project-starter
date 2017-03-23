@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-class ListedMovie extends React.Component {
+class ListedGame extends React.Component {
   constructor() {
     super();
   }
@@ -12,7 +12,11 @@ class ListedMovie extends React.Component {
 
   launchGame (launchID) {
     console.log(`/api/movie-games/${launchID}`);
-    axios.get(`/api/movie-games/${launchID}`)
+    axios.get(`/api/movie-games/${launchID}`, {
+      headers: {
+        authorization: localStorage.getItem('token')
+      }
+    })
     .then(resp => {
       this.props.buildGame(resp.data.game)
     })
@@ -30,11 +34,11 @@ class ListedMovie extends React.Component {
         <div className="mini-menu">
           <span className="fa fa-caret-square-o-left"></span>
           <span className="fa fa-pencil"></span>
-          <span className="fa fa-trash"></span>
+          <span className="fa fa-trash" onClick={() => this.props.deleteGame(this.props.id)}></span>
         </div>
       </div>
     )
   }
 }
 
-export default ListedMovie;
+export default ListedGame;

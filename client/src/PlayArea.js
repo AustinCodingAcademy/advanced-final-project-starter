@@ -51,8 +51,8 @@ class PlayArea extends React.Component {
   render() {
     return (
       <div id="play-area">
-        <h1>Welcome to Movie Memory</h1>
-        <h3>Put your memory to the test</h3>
+        <h1>Movie</h1>
+        <h1>Memory</h1>
         <div id="create-game" onClick={() => this.createGame()}>Create Game</div>
         {this.state.showGameList ? <GameList buildGame={this.buildGame.bind(this)}/> : null }
         {this.state.showSearch ? <CreateGame

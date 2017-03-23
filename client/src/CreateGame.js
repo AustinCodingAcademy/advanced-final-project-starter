@@ -33,7 +33,11 @@ class CreateGame extends React.Component {
 
   saveThisGame() {
     const saveGame = {name: this.state.nameText, game: this.game};
-    axios.post('/api/movie-games', saveGame)
+    axios.post('/api/movie-games', saveGame, {
+      headers: {
+        authorization: localStorage.getItem('token')
+      }
+    })
     .then(() => {
       this.props.buildGame(this.game);
     })

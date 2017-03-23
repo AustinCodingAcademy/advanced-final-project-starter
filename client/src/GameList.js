@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ListedMovie  from './ListedMovie';
+import ListedGame  from './ListedGame';
 import axios from 'axios';
 
 class GameList extends Component {
@@ -13,13 +13,16 @@ class GameList extends Component {
     }
   }
 
-  componentDidMount() {
+  loadGames() {
     console.log('getting games');
-    axios.get('/api/movie-games')
+    axios.get('/api/movie-games', {
+      headers: {
+        authorization: localStorage.getItem('token')
+      }
+    })
     .then(resp => {
       this.list = resp.data;
       console.log('got games', resp);
-      console.log('get response', this.list);
       this.setState({
         gameList: resp.data
       });
@@ -27,16 +30,34 @@ class GameList extends Component {
     .catch(err => console.log("failed to load games", err));
   }
 
+  componentDidMount() {
+    this.loadGames();
+  }
+
+  handleDeleteGame(id) {
+    console.log('deleting game',id);
+    axios.delete(`/api/movie-games/${id}`, {
+      headers: {
+        authorization: localStorage.getItem('token')
+      }
+    })
+    .then(() => {
+      this.loadGames();
+    })
+    .catch(err => console.log("failed to delete game",err));
+  }
+
   render() {
     return (
       <div id="game-list">
       {this.state.gameList.map(game => {
         return (
-          <ListedMovie key={game._id}
+          <ListedGame key={game._id}
             id={game._id}
             poster={game.game[0].poster}
             gameName={game.name}
-            buildGame={this.props.buildGame.bind(this)} />
+            buildGame={this.props.buildGame.bind(this)}
+            deleteGame={this.handleDeleteGame.bind(this)} />
           )
         })
       }

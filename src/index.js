@@ -6,7 +6,6 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const passport = require("passport");
 import AuthenticationRoutes from './routes/AuthenticationRoutes';
-import GameRoutes from './routes/GameRoutes';
 
 mongoose.Promise = global.Promise;
 mongoose
@@ -20,9 +19,11 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(AuthenticationRoutes);
-app.use(GameRoutes);
 
 const authStrategy = passport.authenticate('authStrategy', { session: false});
+import GameRoutes from './routes/GameRoutes';
+
+app.use(authStrategy, GameRoutes);
 
 app.get('/api/secret', authStrategy, function(req, res, next) {
   res.send(`The current user is ${req.user.username}`);

@@ -4,6 +4,24 @@
   min-height: 600px;
 }
 
+#play-area h1 {
+  font-family: 'Oleo Script', cursive;
+  transform: rotate(-10deg);
+  font-size: 140px;
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: 3px 3px #ddd;
+}
+
+#play-area h1:first-of-type {
+  margin: 0 0 -85px 80px;
+}
+
+#play-area h1:last-of-type {
+  margin-left: -90px;
+  margin-bottom: 40px;
+}
+
 #movie-menu {
   position: absolute;
   background-color: white;
