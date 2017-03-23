@@ -20,12 +20,12 @@ const TopNavbar = (props) => {
             <Nav pullRight>
               <Link to="/secret"><Navbar.Text>Secret</Navbar.Text></Link>
             </Nav>
-          </Navbar.Collapse>
-          : null
+          </Navbar.Collapse> :
+          null
       }
     </Navbar>
   );
-}
+};
 
 TopNavbar.propTypes = {
   onSignOut: PropTypes.func.isRequired,
