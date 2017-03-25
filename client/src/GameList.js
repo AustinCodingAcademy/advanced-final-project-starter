@@ -50,6 +50,7 @@ class GameList extends Component {
   render() {
     return (
       <div id="game-list">
+      <div>My Games</div>
       {this.state.gameList.map(game => {
         return (
           <ListedGame key={game._id}

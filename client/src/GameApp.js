@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PlayArea from './PlayArea';
+import MyGames from './MyGames';
 import './css/GameApp.css';
 
 class GameApp extends Component {
@@ -10,7 +10,7 @@ class GameApp extends Component {
   render() {
     return (
       <div className="App">
-        <PlayArea />
+        <MyGames />
       </div>
     );
   }

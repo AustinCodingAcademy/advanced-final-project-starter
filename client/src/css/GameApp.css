@@ -7,19 +7,11 @@
 #play-area h1 {
   font-family: 'Oleo Script', cursive;
   transform: rotate(-10deg);
-  font-size: 140px;
+  font-size: 170px;
   font-weight: bold;
   font-style: italic;
-  text-shadow: 3px 3px #ddd;
-}
-
-#play-area h1:first-of-type {
-  margin: 0 0 -85px 80px;
-}
-
-#play-area h1:last-of-type {
-  margin-left: -90px;
-  margin-bottom: 40px;
+  text-shadow: 3px 3px #5BAF5E;
+  display: inline-block;
 }
 
 #movie-menu {
@@ -46,6 +38,17 @@
   justify-content: center;
 }
 
+#game-list > div:first-of-type {
+  width: 100%;
+  height: 50px;
+  font-size: 18px;
+  line-height: 40px;
+  border-radius: 0;
+  margin: 0;
+  color: white;
+  background: #353535;
+}
+
 #game-list > div {
   position: relative;
   width: 40%;
@@ -55,6 +58,17 @@
   border: 2px solid #ddd;
   border-radius: 10px;
   overflow: hidden;
+}
+
+#game-list > div > div:first-of-type {
+  width: 30%;
+  height: 100%;
+  float: left;
+}
+
+#game-list > div > div > img {
+  width: auto;
+  max-height: 100%;
 }
 
 .mini-menu {
@@ -84,17 +98,6 @@
 
 .mini-menu span:not(:first-of-type) {
   margin-right: 15px;
-}
-
-#game-list > div > div:first-of-type {
-  width: 30%;
-  height: 100%;
-  float: left;
-}
-
-#game-list > div > div > img {
-  width: auto;
-  max-height: 100%;
 }
 
 /*.launch-game {
@@ -152,8 +155,15 @@
   color: white;
   line-height: 45px;
   border-radius: 5px;
-  display: inline-block;
   cursor: pointer;
+}
+
+#load-game, #start-game, .launch-game {
+  display: inline-block;
+}
+
+#create-game {
+  margin: 50px auto 0 auto;
 }
 
 #load-game {
@@ -240,7 +250,7 @@
 }
 
 .movie-card-unmatched {
-  background: black;
+  background: #353535;
 }
 
 .movie-card img {

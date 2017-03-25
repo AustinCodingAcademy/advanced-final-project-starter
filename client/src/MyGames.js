@@ -2,14 +2,16 @@ import React from 'react';
 import CreateGame from './CreateGame';
 import MovieGame from './MovieGame';
 import GameList from './GameList';
+import { Jumbotron } from 'react-bootstrap';
 
-class PlayArea extends React.Component {
+class MyGames extends React.Component {
   constructor() {
     super();
 
     this.newGame = [];
 
     this.state = {
+      showWelcome: true,
       showSearch: false,
       showGameList: true,
       showGame: false
@@ -18,6 +20,7 @@ class PlayArea extends React.Component {
 
   createGame() {
     this.setState({
+      showWelcome: false,
       showGameList: false,
       showSearch: true,
       showGame: false
@@ -41,6 +44,7 @@ class PlayArea extends React.Component {
     console.log('game saved, loading...');
     this.newGame = gameArray;
     this.setState({
+      showWelcome: false,
       showGame: true,
       showGameList: false,
       showSearch: false
@@ -51,9 +55,12 @@ class PlayArea extends React.Component {
   render() {
     return (
       <div id="play-area">
-        <h1>Movie</h1>
-        <h1>Memory</h1>
-        <div id="create-game" onClick={() => this.createGame()}>Create Game</div>
+        {this.state.showWelcome ? <Jumbotron>
+            <h1>Movie</h1>
+            <h1>Memory</h1>
+            <div id="create-game"
+              onClick={() => this.createGame()}>Create Game</div>
+          </Jumbotron> : null }
         {this.state.showGameList ? <GameList buildGame={this.buildGame.bind(this)}/> : null }
         {this.state.showSearch ? <CreateGame
           buildGame={this.buildGame.bind(this)} /> : null }
@@ -63,4 +70,4 @@ class PlayArea extends React.Component {
   }
 }
 
-export default PlayArea;
+export default MyGames;
