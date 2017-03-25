@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const gameSchema = new mongoose.Schema({
   'owner' : {
     required: true,
-    type: String
+    type: mongoose.Schema.Types.ObjectId
   },
   'name' : {
     required: true,

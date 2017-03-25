@@ -3,7 +3,7 @@ import GameModel from '../models/GameModel';
 const gameController = {};
 
 gameController.list = (request, response, next) => {
-  GameModel.find().exec()
+  GameModel.find({owner: request.user._id}).exec()
   .then(game => response.json(game))
   .catch(err => next(err));
 };
@@ -16,11 +16,11 @@ gameController.show = (request, response, next) => {
 
 gameController.create = (request, response, next) => {
   const GAME = new GameModel({
-    owner: 'anonymous',
+    owner: request.user._id,
     name: request.body.name,
     game: request.body.game
   });
-
+  console.log('trying to save', GAME);
   GAME.save()
   .then(newGame => response.json(newGame))
   .catch(err => next(err));
