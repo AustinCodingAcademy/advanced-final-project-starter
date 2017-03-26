@@ -7,7 +7,7 @@ const TopNavbar = (props) => {
     <Navbar inverse collapseOnSelect>
       <Navbar.Header>
         <Navbar.Brand>
-          <Link to="/">MM</Link>
+          <Link to="#">MM</Link>
         </Navbar.Brand>
         { props.showNavItems ? <Navbar.Toggle /> : null }
       </Navbar.Header>
@@ -28,8 +28,8 @@ const TopNavbar = (props) => {
 }
 
 TopNavbar.propTypes = {
-  onSignOut: PropTypes.func.isRequired//,
-  //showNavItems: PropTypes.bool
+  onSignOut: PropTypes.func.isRequired,
+  showNavItems: PropTypes.bool
 };
 
 export default TopNavbar;

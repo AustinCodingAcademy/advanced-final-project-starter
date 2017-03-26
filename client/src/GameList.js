@@ -58,6 +58,7 @@ class GameList extends Component {
             poster={game.game[0].poster}
             gameName={game.name}
             buildGame={this.props.buildGame.bind(this)}
+            updateGame={this.props.updateGame.bind(this)}
             deleteGame={this.handleDeleteGame.bind(this)} />
           )
         })

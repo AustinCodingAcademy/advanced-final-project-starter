@@ -19,6 +19,24 @@ class CreateGame extends React.Component {
     };
   }
 
+  componentDidMount() {
+    if(this.props.isUpdate) {
+      axios.get(`/api/movie-games/${this.props.id}`,{
+        headers: {
+          authorization: localStorage.getItem('token')
+        }
+      })
+      .then(resp => {
+        this.game = resp.data.game;
+        this.setState({
+          pendingGame: this.game,
+          nameText: resp.data.name
+        });
+      })
+      .catch(err => console.log('get gamer error',err));
+    }
+  }
+
   captureSearch(event) {
     this.setState({
       searchText: event.target.value
@@ -45,6 +63,22 @@ class CreateGame extends React.Component {
       console.log("saved game", this.state.nameText);
     })
     .catch(err => {console.log("save error",err)});
+  }
+
+  updateThisGame(id) {
+    const updateGame = {name: this.state.nameText, game: this.game};
+    axios.put(`/api/movie-games/${id}`, updateGame, {
+      headers: {
+        authorization: localStorage.getItem('token')
+      }
+    })
+    .then(() => {
+      this.props.buildGame(this.game);
+    })
+    .then(() => {
+      console.log("updated game", this.state.nameText);
+    })
+    .catch(err => {console.log("update error",err)});
   }
 
   goSearch(search) {
@@ -98,7 +132,8 @@ class CreateGame extends React.Component {
           captureSearch={this.captureSearch.bind(this)}
           goSearch={this.goSearch.bind(this)}
           value={this.state.searchText}/>
-        <div id='load-game' onClick={() => this.saveThisGame()}>Load Game</div>
+        <div id='load-game' onClick={() => {this.props.isUpdate ? this.updateThisGame(this.props.id) :
+          this.saveThisGame()}}>Load Game</div>
         <input id="input-gamename" type="text"
           placeholder="Name this game..."
           value={this.state.nameText}

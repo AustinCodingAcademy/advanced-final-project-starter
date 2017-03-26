@@ -33,7 +33,7 @@ class ListedGame extends React.Component {
         <div className="launch-game" onClick={() => this.launchGame(this.props.id)}>Play</div>
         <div className="mini-menu">
           <span className="fa fa-caret-square-o-left"></span>
-          <span className="fa fa-pencil"></span>
+          <span className="fa fa-pencil" onClick={() => this.props.updateGame(this.props.id)}></span>
           <span className="fa fa-trash" onClick={() => this.props.deleteGame(this.props.id)}></span>
         </div>
       </div>

@@ -9,6 +9,7 @@ class MyGames extends React.Component {
     super();
 
     this.newGame = [];
+    this.updateGameID = '';
 
     this.state = {
       showWelcome: true,
@@ -40,7 +41,6 @@ class MyGames extends React.Component {
         });
       }
     });
-    console.log('game array', gameArray);
     console.log('game saved, loading...');
     this.newGame = gameArray;
     this.setState({
@@ -52,6 +52,16 @@ class MyGames extends React.Component {
     return gameArray;
   }
 
+  updateGame(id) {
+    this.updateGameID = id;
+    this.setState({
+      showWelcome: false,
+      showGame: false,
+      showGameList: false,
+      showSearch: true
+    })
+  }
+
   render() {
     return (
       <div id="play-area">
@@ -61,9 +71,13 @@ class MyGames extends React.Component {
             <div id="create-game"
               onClick={() => this.createGame()}>Create Game</div>
           </Jumbotron> : null }
-        {this.state.showGameList ? <GameList buildGame={this.buildGame.bind(this)}/> : null }
+        {this.state.showGameList ? <GameList
+          buildGame={this.buildGame.bind(this)}
+          updateGame={this.updateGame.bind(this)}/> : null }
         {this.state.showSearch ? <CreateGame
-          buildGame={this.buildGame.bind(this)} /> : null }
+          buildGame={this.buildGame.bind(this)}
+          id={this.updateGameID}
+          isUpdate={this.updateGameID ? true : false}/> : null }
         {this.state.showGame ? <MovieGame gameDeck={this.newGame}/> : null}
       </div>
     )

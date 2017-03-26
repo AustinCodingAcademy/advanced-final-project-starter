@@ -9,6 +9,7 @@ const PendingGame = props => {
           return (
             <div className='movie-card' key={movie.game_id}>
               <img src={movie.poster} alt='added movie' />
+              <span className="remove-pending-movie fa fa-minus"></span>
             </div>
             )
           })

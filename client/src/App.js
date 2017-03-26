@@ -86,7 +86,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <TopNavbar showNavItems={this.state.authenticated} onSignOut={this.handleSignOut.bind(this)} />
+          <TopNavbar showNavItems={this.state.authenticated ? true : false} onSignOut={this.handleSignOut.bind(this)} />
           {this.state.authenticated ? this.renderApp(): this.renderSignUpSignIn()}
         </div>
       </BrowserRouter>
