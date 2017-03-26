@@ -2,9 +2,6 @@ import React from 'react';
 import axios from 'axios';
 
 class ListedGame extends React.Component {
-  constructor() {
-    super();
-  }
 
   componentDidMount() {
     console.log('listed game',this.props.gameName);

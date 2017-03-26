@@ -7,7 +7,7 @@ const TopNavbar = (props) => {
     <Navbar inverse collapseOnSelect>
       <Navbar.Header>
         <Navbar.Brand>
-          <Link to="#">MM</Link>
+          <Link to="/mygames">MM</Link>
         </Navbar.Brand>
         { props.showNavItems ? <Navbar.Toggle /> : null }
       </Navbar.Header>

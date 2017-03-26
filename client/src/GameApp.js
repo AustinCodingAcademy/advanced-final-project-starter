@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import MyGames from './MyGames';
 import './css/GameApp.css';
 

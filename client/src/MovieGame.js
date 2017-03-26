@@ -146,7 +146,7 @@ class MovieGame extends React.Component {
   }
 
   runSelection(selection) {
-    if(Object.keys(this.firstSelection).length == 0) {
+    if(Object.keys(this.firstSelection).length === 0) {
       this.firstSelection = selection;
       let firstArray = this.updateMovieCard(selection.game_id, 'showPoster', true);
       firstArray = this.updateMovieCard(selection.game_id, 'clickable', false);

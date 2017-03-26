@@ -105,7 +105,11 @@ class CreateGame extends React.Component {
   }
 
   addMovieToGame(movie) {
-    var x = this.game.length + 1;
+    if(this.game.length === 0) {
+      var x = 1;
+    } else {
+      var x = this.game[this.game.length - 1].game_id + 1;
+    };
     this.game.push({
       game_id: x,
       poster: movie,
@@ -113,7 +117,7 @@ class CreateGame extends React.Component {
       clickable: true,
       matched: false
     });
-    console.log('this game', this.game);
+    console.log('added this game', this.game);
     this.setState({
       pendingGame: this.game
     });

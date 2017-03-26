@@ -6,11 +6,11 @@ class GameList extends Component {
   constructor() {
     super();
 
-    this.list = [],
+    this.list = [];
 
     this.state = {
       gameList: []
-    }
+    };
   }
 
   loadGames() {

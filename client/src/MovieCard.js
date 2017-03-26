@@ -1,9 +1,6 @@
 import React from 'react';
 
 class MovieCard extends React.Component {
-  constructor() {
-    super();
-  }
 
   clickMovie() {
     console.log('clicked movie');
