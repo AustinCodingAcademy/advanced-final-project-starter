@@ -200,6 +200,10 @@
   float: left;
 }
 
+#pending-games span {
+  color: #5BAF5E;
+}
+
 #pending-games > div {
   display: flex;
   flex-wrap: wrap;

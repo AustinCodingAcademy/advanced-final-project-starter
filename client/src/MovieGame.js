@@ -157,8 +157,6 @@ class MovieGame extends React.Component {
       this.secondSelection = selection;
       let secondArray = this.updateMovieCard(selection.game_id, 'showPoster', true);
       secondArray = this.updateMovieCard(selection.game_id, 'clickable', false);
-      let updatedGuesses = this.state.guesses;
-      updatedGuesses += 1;
       this.setState({
         gameMovies: secondArray,
         gameReady: false

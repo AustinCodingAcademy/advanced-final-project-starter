@@ -16,8 +16,9 @@ class MovieCard extends React.Component {
 
   render() {
     return (
-      <div className={this.props.matched ? 'movie-card movie-card-matched' : 'movie-card movie-card-unmatched'} onClick={() => this.clickMovie()}>
-        {this.props.showPoster ? <img src={this.props.memoryImage} /> : null}
+      <div className={this.props.matched ? 'movie-card movie-card-matched' : 'movie-card movie-card-unmatched'}
+        onClick={() => this.clickMovie()}>
+        {this.props.showPoster ? <img src={this.props.memoryImage} alt={this.props.title}/> : null}
       </div>
     )
   }

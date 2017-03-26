@@ -7,9 +7,12 @@ const PendingGame = props => {
       <div>
         {props.pendingGame.map(movie => {
           return (
-            <div className='movie-card' key={movie.game_id}>
-              <img src={movie.poster} alt='added movie' />
-              <span className="remove-pending-movie fa fa-minus"></span>
+            <div  key={movie.game_id}>
+              <div className='movie-card'>
+                <img src={movie.poster} alt='added movie' />
+              </div>
+              <span className="remove-pending-movie fa fa-minus"
+                onClick={() => props.removeGame(movie.game_id)}></span>
             </div>
             )
           })

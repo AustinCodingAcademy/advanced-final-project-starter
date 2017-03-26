@@ -119,6 +119,15 @@ class CreateGame extends React.Component {
     });
   }
 
+  removeMovieFromGame(id) {
+    let updatedPendingGame = this.state.pendingGame.filter(movie => movie.game_id !== id);
+    console.log('trying to remove movie from game', id);
+    this.game = updatedPendingGame;
+    this.setState({
+      pendingGame: updatedPendingGame
+    });
+  }
+
   formatDate(date) {
     let arrDate = date.split('-');
     return arrDate[1] + '/' + arrDate[2] + '/' + arrDate[0];
@@ -139,7 +148,8 @@ class CreateGame extends React.Component {
           value={this.state.nameText}
           onChange={event => this.captureName(event)}></input>
         <div id="working-search">
-          <PendingGame pendingGame={this.state.pendingGame}/>
+          <PendingGame pendingGame={this.state.pendingGame}
+            removeGame={this.removeMovieFromGame.bind(this)}/>
           <MovieSearchResults searchResult={this.state.searchResult}
             addMovie={this.addMovieToGame.bind(this)}/>
         </div>
