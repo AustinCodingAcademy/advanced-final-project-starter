@@ -19,6 +19,7 @@ const TopNavbar = (props) => {
             </Nav>
             <Nav pullRight>
               <Link to="/mygames"><Navbar.Text>My Games</Navbar.Text></Link>
+              <Link to="/help"><Navbar.Text>Help</Navbar.Text></Link>
             </Nav>
           </Navbar.Collapse>
           : null

@@ -265,3 +265,12 @@
   width: 122px;
   height: 100%;
 }
+
+#memory-help {
+  text-align: left;
+  padding: 0 25px 25px 25px;
+}
+
+#memry-help p {
+  margin: 2px;
+}

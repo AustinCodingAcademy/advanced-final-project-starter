@@ -4,6 +4,7 @@ import './css/App.css';
 import SignUpSignIn from './SignUpSignIn';
 import TopNavbar from './TopNavbar';
 import GameApp from './GameApp';
+import MemoryHelp from './MemoryHelp';
 import axios from 'axios';
 
 class App extends Component {
@@ -74,7 +75,8 @@ class App extends Component {
     return (
       <div>
         <Switch>
-          <Route exact pattern="/mygames" component={GameApp} />
+          <Route exact path="/mygames" component={GameApp} />
+          <Route exact path="/help" component={MemoryHelp} />
           <Route exact pattern="/" render={() => <h1>You should totes sign up to play!</h1>} />
           <Route render={() => <h1>NOT FOUND!</h1>} />
         </Switch>
