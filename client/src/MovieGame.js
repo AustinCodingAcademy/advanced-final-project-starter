@@ -224,6 +224,7 @@ class MovieGame extends React.Component {
         <div id="game-status">
           {this.state.gameStatus === 'pending' ? <div id='start-game' onClick={() => this.startGame()}>Start Game</div> :
             <div id='start-game' onClick={() => this.startGame()}>Restart Game</div>}
+            <div className='reset-mygames' onClick={() => this.props.resetMyGames()}>{`I'm Done`}</div>
           <GameMessage message={this.state.gameMessage} />
           <GameScore gameScore={this.state.gameScore} gameStatus={this.state.gameStatus}/>
         </div>

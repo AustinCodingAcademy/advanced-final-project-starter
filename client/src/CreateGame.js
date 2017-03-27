@@ -15,7 +15,8 @@ class CreateGame extends React.Component {
       searchText: '',
       nameText: '',
       searchResult: [],
-      showResults: false
+      showResults: false,
+      searchMessage: ''
     };
   }
 
@@ -50,19 +51,31 @@ class CreateGame extends React.Component {
   }
 
   saveThisGame() {
-    const saveGame = {name: this.state.nameText, game: this.game};
-    axios.post('/api/movie-games', saveGame, {
-      headers: {
-        authorization: localStorage.getItem('token')
-      }
-    })
-    .then(() => {
-      this.props.buildGame(this.game);
-    })
-    .then(() => {
-      console.log("saved game", this.state.nameText);
-    })
-    .catch(err => {console.log("save error",err)});
+    if(this.game.length === 0) {
+      this.setState({
+        searchMessage: 'Um... you have no movies in your game!'
+      });
+      return;
+    } else if(this.state.nameText === '') {
+      this.setState({
+        searchMessage: 'This awesome game needs a name!'
+      });
+      return;
+    } else {
+      const saveGame = {name: this.state.nameText, game: this.game};
+      axios.post('/api/movie-games', saveGame, {
+        headers: {
+          authorization: localStorage.getItem('token')
+        }
+      })
+      .then(() => {
+        this.props.buildGame(this.game);
+      })
+      .then(() => {
+        console.log("saved game", this.state.nameText);
+      })
+      .catch(err => {console.log("save error",err)});
+    }
   }
 
   updateThisGame(id) {
@@ -105,10 +118,11 @@ class CreateGame extends React.Component {
   }
 
   addMovieToGame(movie) {
+    var x = 0;
     if(this.game.length === 0) {
-      var x = 1;
+      x = 1;
     } else {
-      var x = this.game[this.game.length - 1].game_id + 1;
+      x = this.game[this.game.length - 1].game_id + 1;
     };
     this.game.push({
       game_id: x,
@@ -147,10 +161,13 @@ class CreateGame extends React.Component {
           value={this.state.searchText}/>
         <div id='load-game' onClick={() => {this.props.isUpdate ? this.updateThisGame(this.props.id) :
           this.saveThisGame()}}>Load Game</div>
+        <div className='reset-mygames' onClick={() => this.props.resetMyGames()}>Nevermind</div>
         <input id="input-gamename" type="text"
           placeholder="Name this game..."
+          maxLength="30"
           value={this.state.nameText}
           onChange={event => this.captureName(event)}></input>
+        <p>{this.state.searchMessage}</p>
         <div id="working-search">
           <PendingGame pendingGame={this.state.pendingGame}
             removeGame={this.removeMovieFromGame.bind(this)}/>

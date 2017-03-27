@@ -19,6 +19,15 @@ class MyGames extends React.Component {
     };
   }
 
+  resetMyGames() {
+    this.setState({
+      showWelcome: true,
+      showSearch: false,
+      showGameList: true,
+      showGame: false
+    });
+  }
+
   createGame() {
     this.setState({
       showWelcome: false,
@@ -40,6 +49,7 @@ class MyGames extends React.Component {
           matched: false
         });
       }
+    return gameArray;  
     });
     console.log('game saved, loading...');
     this.newGame = gameArray;
@@ -77,8 +87,10 @@ class MyGames extends React.Component {
         {this.state.showSearch ? <CreateGame
           buildGame={this.buildGame.bind(this)}
           id={this.updateGameID}
-          isUpdate={this.updateGameID ? true : false}/> : null }
-        {this.state.showGame ? <MovieGame gameDeck={this.newGame}/> : null}
+          isUpdate={this.updateGameID ? true : false}
+          resetMyGames={this.resetMyGames.bind(this)}/> : null }
+        {this.state.showGame ? <MovieGame gameDeck={this.newGame}
+          resetMyGames={this.resetMyGames.bind(this)}/> : null}
       </div>
     )
   }
