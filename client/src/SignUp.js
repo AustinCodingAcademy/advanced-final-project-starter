@@ -9,7 +9,7 @@ class SignUp extends Component {
     this.state = {
       username: '',
       password: '',
-      confirmPassword: '',
+      confirmPassword: ''
     };
   }
 

@@ -1,14 +1,24 @@
 import express from 'express';
-import { create, update } from '../controllers/ListsController';
-
-
+import ListController from '../controllers/ListsController';
 const router = express.Router();
 
 
-router.post('/lists', create);
+// Declare GET routes.
+router.get('/lists', ListController.list);
+
+router.get('/lists/:list_id', ListController.show);
 
 
-router.put('/lists/:id', update);
+// Declare a POST (create) route.
+router.post('/lists', ListController.create);
+
+
+// Declare a PUT (update) route.
+router.put('/lists/:id', ListController.update);
+
+
+// Declare a DELETE (remove) route.
+router.delete('/lists/:id', ListController.remove);
 
 
 export default router;

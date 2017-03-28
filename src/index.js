@@ -5,8 +5,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require('passport');
-import ListRoutes from '../routes/ListRoutes';
-import ListItemRoutes from '../routes/ListItemRoutes';
+import ListRoutes from './routes/ListRoutes';
+import ListItemRoutes from './routes/ListItemRoutes';
 
 
 // Require our custom strategies
