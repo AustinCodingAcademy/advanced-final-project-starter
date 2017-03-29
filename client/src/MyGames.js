@@ -9,6 +9,7 @@ class MyGames extends React.Component {
     super();
 
     this.newGame = [];
+    this.newGameName='';
     this.updateGameID = '';
 
     this.state = {
@@ -37,7 +38,7 @@ class MyGames extends React.Component {
     });
   }
 
-  buildGame(arr) {
+  buildGame(name, arr) {
     //map each array index
     let gameArray = arr;
     arr.map(movie => {
@@ -49,10 +50,11 @@ class MyGames extends React.Component {
           matched: false
         });
       }
-    return gameArray;  
+    return gameArray;
     });
     console.log('game saved, loading...');
     this.newGame = gameArray;
+    this.newGameName = name;
     this.setState({
       showWelcome: false,
       showGame: true,
@@ -90,7 +92,8 @@ class MyGames extends React.Component {
           isUpdate={this.updateGameID ? true : false}
           resetMyGames={this.resetMyGames.bind(this)}/> : null }
         {this.state.showGame ? <MovieGame gameDeck={this.newGame}
-          resetMyGames={this.resetMyGames.bind(this)}/> : null}
+          resetMyGames={this.resetMyGames.bind(this)}
+          gameName={this.newGameName}/> : null}
       </div>
     )
   }

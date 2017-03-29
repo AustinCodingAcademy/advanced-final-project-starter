@@ -6,10 +6,10 @@ const MemoryHelp = props => {
       <h1>Help</h1>
       <ul>
         <li><a href="#how">How to play Memory</a></li>
-        <li>Create a custom game</li>
-        <li>Launch a game</li>
-        <li>Edit a game</li>
-        <li>Delete a game</li>
+        <li><a href="#create">Create a custom game</a></li>
+        <li><a href="#launch">Launch a game</a></li>
+        <li><a href="#edit">Edit a game</a></li>
+        <li><a href="#delete">Delete a game</a></li>
       </ul>
       <h3 id="how">How to play Memory</h3>
       <p>{`Memory is a really simple game. A series of cards are placed face down.  The player
@@ -28,7 +28,7 @@ const MemoryHelp = props => {
       <p>{`Click Restart Game at any time to start over. This will reschuffle the movie posters
       in a new, random order.`}</p>
       <p>{`Click I'm Done to go back to your game list.`}</p>
-      <h3>Create a custom game</h3>
+      <h3 id="create">Create a custom game</h3>
       <p>{`Click Create Game to build your own custom Movie Memory game`}</p>
       <p>{`Enter a movie title into the search field. Click the magnifying glass. Your search will
         bring back a list of matching movie titles`}</p>
@@ -37,6 +37,9 @@ const MemoryHelp = props => {
       <p>{`If needed, click the minus sign below the movie poster to remove a movie from your game.`}</p>
       <p>{`Click Load Game to save our new, awesome game. This will take you right into game play.`}</p>
       <p>{`Click Nevermind to cancel your pending game. Your game will not be saved.`}</p>
+      <h3 id="launch">Launch a game</h3>
+      <p>{`You can launch a game directly from My Games.  All your saved games will be displayed under My Games.
+        Simply click the Play button under the listed game you wish to play.`}</p>
     </div>
   )
 }

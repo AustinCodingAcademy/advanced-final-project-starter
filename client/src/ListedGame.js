@@ -15,7 +15,7 @@ class ListedGame extends React.Component {
       }
     })
     .then(resp => {
-      this.props.buildGame(resp.data.game)
+      this.props.buildGame(resp.data.name, resp.data.game)
     })
     .catch(err => console.log("failure to launch",err));
   }

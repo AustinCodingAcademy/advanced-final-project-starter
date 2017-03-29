@@ -69,7 +69,7 @@ class CreateGame extends React.Component {
         }
       })
       .then(() => {
-        this.props.buildGame(this.game);
+        this.props.buildGame(this.state.nameText, this.game);
       })
       .then(() => {
         console.log("saved game", this.state.nameText);
@@ -164,7 +164,7 @@ class CreateGame extends React.Component {
         <div className='reset-mygames' onClick={() => this.props.resetMyGames()}>Nevermind</div>
         <input id="input-gamename" type="text"
           placeholder="Name this game..."
-          maxLength="30"
+          maxLength="25"
           value={this.state.nameText}
           onChange={event => this.captureName(event)}></input>
         <p>{this.state.searchMessage}</p>

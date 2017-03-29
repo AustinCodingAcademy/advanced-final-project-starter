@@ -52,7 +52,7 @@ class MovieGame extends React.Component {
           matched: false
         });
       });
-      console.log("Restarting game...", restartArray);
+      console.log("Restarting game...");
       this.threeGuesses = 0;
       this.setState({
         gameMovies: restartArray,
@@ -69,7 +69,7 @@ class MovieGame extends React.Component {
           matched: false
         });
       });
-      console.log("Starting game...", startArray);
+      console.log("Starting game...");
       this.setState({
       gameMovies: startArray,
       gameStatus: 'inprogress',
@@ -97,7 +97,7 @@ class MovieGame extends React.Component {
       gameMovies: guessArray
     });
     if (this.threeGuesses === 3) {
-      console.log('guesses are done');
+      console.log('guesses are done...');
       this.setState({
         gameReady: false,
         gameMessage: 'Click Start Game'
@@ -221,6 +221,7 @@ class MovieGame extends React.Component {
   render() {
     return (
       <div id="game-board">
+        <h2>{this.props.gameName}</h2>
         <div id="game-status">
           {this.state.gameStatus === 'pending' ? <div id='start-game' onClick={() => this.startGame()}>Start Game</div> :
             <div id='start-game' onClick={() => this.startGame()}>Restart Game</div>}

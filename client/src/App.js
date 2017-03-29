@@ -77,7 +77,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/mygames" component={GameApp} />
           <Route exact path="/help" component={MemoryHelp} />
-          <Route exact pattern="/" render={() => <h1>You should totes sign up to play!</h1>} />
+          <Route exact path="/" component={GameApp} />
           <Route render={() => <h1>NOT FOUND!</h1>} />
         </Switch>
       </div>
