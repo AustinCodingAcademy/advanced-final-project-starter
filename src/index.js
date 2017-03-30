@@ -8,12 +8,19 @@ const passport = require("passport");
 import AuthenticationRoutes from './routes/AuthenticationRoutes';
 
 mongoose.Promise = global.Promise;
+const MONGODB_URI = process.env.MONGODB_URI;
 mongoose
-  .connect("mongodb://localhost/movie-memory")
+  .connect(MONGODB_URI)
   .then(() => console.log("[mongoose] Connected to MongoDB"))
   .catch(() => console.log("[mongoose] Error connecting to MongoDB"));
 
 const app = express();
+
+app.use(express.static('public'));
+
+app.get('/', (req, res, next) => {
+  res.sendFile('public/index.html');
+});
 
 //const authenticationRoutes = require("./routes/AuthenticationRoutes");
 
