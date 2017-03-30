@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 import AuthenticationRoutes from './routes/AuthenticationRoutes';
 
+
 mongoose.Promise = global.Promise;
 mongoose
   .connect("mongodb://localhost/movie-memory")
