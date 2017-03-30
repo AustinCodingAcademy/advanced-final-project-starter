@@ -27,7 +27,7 @@ const MemoryHelp = props => {
       <p>{`When your three guesses are up, click Start Game to begin play.`}</p>
       <p>{`Click Restart Game at any time to start over. This will reschuffle the movie posters
       in a new, random order.`}</p>
-      <p>{`Click I'm Done to go back to your game list.`}</p>
+      <p>{`Click I'm Done to go back to your game list.`}</p><a href="#">Back to top</a>
       <h3 id="create">Create a custom game</h3>
       <p>{`Click Create Game to build your own custom Movie Memory game`}</p>
       <p>{`Enter a movie title into the search field. Click the magnifying glass. Your search will
@@ -36,10 +36,17 @@ const MemoryHelp = props => {
         movie posters as you compile your game.`}</p>
       <p>{`If needed, click the minus sign below the movie poster to remove a movie from your game.`}</p>
       <p>{`Click Load Game to save our new, awesome game. This will take you right into game play.`}</p>
-      <p>{`Click Nevermind to cancel your pending game. Your game will not be saved.`}</p>
+      <p>{`Click Nevermind to cancel your pending game. Your game will not be saved.`}</p><a href="#">Back to top</a>
       <h3 id="launch">Launch a game</h3>
       <p>{`You can launch a game directly from My Games.  All your saved games will be displayed under My Games.
-        Simply click the Play button under the listed game you wish to play.`}</p>
+        Simply click the Play button under the listed game you wish to play.`}</p><a href="#">Back to top</a>
+      <h3 id="edit">Edit a game</h3>
+      <p>{`To edit a game, hover over the "..." symbol under the listed game. A small menu will expand with a pencil
+      and a trash can. Click the small pencil icon. This will take you to the Create Game component, where you can
+      make changes to your game. Follow the instructions under Create a Game.`}</p><a href="#">Back to top</a>
+      <h3 id="delete">Delete a game</h3>
+      <p>{`To edit a game, hover over the "..." symbol under the listed game. A small menu will expand with a pencil
+      and a trash can. Click the small trash can icon.  This will remove the game from your list.   `}</p><a href="#">Back to top</a>
     </div>
   )
 }
