@@ -50,5 +50,5 @@
     "passport-jwt": "^2.2.1",
     "passport-local": "^1.0.0"
   },
-  "proxy" : "http://localhost:3001"
+  "proxy" : "https://young-temple-99942.herokuapp.com/"
 }
