@@ -1,0 +1,24 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #353535;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+#sign-up, #sign-in {
+  height: 45px;
+  width: 150px;
+  background: #5BAF5E;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

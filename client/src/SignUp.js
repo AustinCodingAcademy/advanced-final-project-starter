@@ -26,7 +26,6 @@ class SignUp extends Component {
     const { name, value } = event.target;
 
     this.setState(prev => ({
-      ...prev,
       [name]: value
     }));
   }
@@ -35,29 +34,27 @@ class SignUp extends Component {
     return (
       <form onSubmit={this.handleSubmit.bind(this)}>
         <FormGroup>
-          <ControlLabel>Username</ControlLabel>
+          <ControlLabel><h3>Create an account to enjoy Movie Memory</h3></ControlLabel>
           <FormControl
-            type="email"
+            type="text"
             name="username"
             onChange={event => this.handleChange(event)}
-            placeholder="Enter Username"
+            placeholder="Create Username"
             value={this.state.username}
           />
         </FormGroup>
 
         <FormGroup>
-          <ControlLabel>Password</ControlLabel>
           <FormControl
             type="password"
             name="password"
             onChange={event => this.handleChange(event)}
-            placeholder="Enter Password"
+            placeholder="Create Password"
             value={this.state.password}
           />
         </FormGroup>
 
         <FormGroup>
-          <ControlLabel>Confirm Password</ControlLabel>
           <FormControl
             type="password"
             name="confirmPassword"
@@ -67,7 +64,7 @@ class SignUp extends Component {
           />
         </FormGroup>
 
-        <Button type="submit">
+        <Button id="sign-up" type="submit">
          Sign Up
        </Button>
       </form>

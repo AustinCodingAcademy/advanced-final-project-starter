@@ -5,9 +5,15 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint src",
-    "dev": "nodemon --exec 'babel-node src/index'",
+    "api-dev": "nodemon --exec \"babel-node src/index\"",
     "test": "npm run lint",
-    "start": "nf start"
+    "dev": "nf start",
+    "build-client": "cd client && npm run build",
+    "clean-assets": "rm -rf ./public/*",
+    "copy-assets": "mkdir -p ./public && cp -R ./client/build/* ./public",
+    "compile-server": "rm -rf ./dist && babel src --out-dir dist",
+    "pre-deploy": "npm run compile-server && npm run build-client && npm run clean-assets && npm run copy-assets",
+    "start": "node ./dist/index"
   },
   "keywords": [],
   "author": "",
@@ -34,7 +40,7 @@
     "nodemon": "^1.11.0"
   },
   "dependencies": {
-    "bcrypt": "^0.8.7",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.2",
     "create-react-app": "1.2.1",
     "dotenv": "^2.0.0",
@@ -44,5 +50,6 @@
     "passport": "^0.3.2",
     "passport-jwt": "^2.2.1",
     "passport-local": "^1.0.0"
-  }
+  },
+  "proxy" : "https://young-temple-99942.herokuapp.com/"
 }
