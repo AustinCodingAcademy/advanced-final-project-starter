@@ -4,10 +4,10 @@ import './App.css';
 import SignUpSignIn from './SignUpSignIn';
 import TopNavbar from './TopNavbar';
 import Secret from './Secret';
-import axios from 'axios';
 
-class App extends Component {
 
+function App() {
+  return <div> Hello ACA </div>;
 }
 
 export default App;
